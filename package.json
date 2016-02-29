@@ -1,0 +1,14 @@
+{
+  "name": "mbu-frontend",
+  "version": "0.1.0",
+  "description": "Angular frontend for Merit Badge University registration",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dmurtari/mbu-frontend.git"
+  },
+  "author": "Domenic Murtari",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dmurtari/mbu-frontend/issues"
+  }
+}
