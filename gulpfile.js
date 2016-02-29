@@ -41,10 +41,14 @@ gulp.task('views', function() {
   gulp.src('app/index.html')
   .pipe(gulp.dest('dist/'))
   .pipe(refresh(lrserver));
+
+  gulp.src('app/src/**/*.html', {base: 'app'})
+  .pipe(gulp.dest('dist/'))
+  .pipe(refresh(lrserver));
 });
 
 gulp.task('static', function() {
-  gulp.src(['app/css/*.css', 'app/fonts/*', 'app/js/*'], {base: 'app'})
+  gulp.src(['app/css/*', 'app/fonts/*', 'app/js/*'], {base: 'app'})
   .pipe(gulp.dest('dist/'))
   .pipe(refresh(lrserver));
 })
@@ -60,10 +64,6 @@ var embedlr = require('gulp-embedlr'),
 var server = express();
 server.use(livereload({port: livereloadport}));
 server.use(express.static('./dist'));
-
-server.all('/*', function(req, res) {
-    res.sendfile('index.html', { root: 'dist' });
-});
 
 gulp.task('dev', ['static', 'browserify', 'views'], function() {
   server.listen(serverport);

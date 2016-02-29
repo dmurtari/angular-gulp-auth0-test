@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports = function() {
-  this.text = "Welcome to Merit Badge University registration!";
-}
+  this.text = 'Welcome to Merit Badge University registration!';
+};
