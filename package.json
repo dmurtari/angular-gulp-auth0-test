@@ -11,15 +11,21 @@
   "bugs": {
     "url": "https://github.com/dmurtari/mbu-frontend/issues"
   },
+  "scripts": {
+    "watch": "./node_modules/gulp/bin/gulp.js watch"
+  },
   "dependencies": {
     "angular": "^1.5.0",
     "angular-ui-bootstrap": "^1.2.1",
-    "angular-ui-router": "^0.2.18"
+    "angular-ui-router": "^0.2.18",
+    "jquery": "^2.2.1"
   },
   "devDependencies": {
     "browserify": "^13.0.0",
     "browserify-shim": "^3.8.12",
     "chai": "^3.5.0",
+    "del": "^2.2.0",
+    "glob": "^7.0.0",
     "gulp": "^3.9.1",
     "gulp-connect": "^3.1.0",
     "gulp-load-plugins": "^1.2.0",
@@ -32,6 +38,7 @@
     "karma-chai": "^0.1.0",
     "karma-chrome-launcher": "^0.2.2",
     "karma-firefox-launcher": "^0.1.7",
+    "karma-jasmine": "^0.3.7",
     "karma-mocha": "^0.2.2",
     "karma-sinon": "^1.0.4",
     "mocha": "^2.4.5",
