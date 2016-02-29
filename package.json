@@ -12,7 +12,8 @@
     "url": "https://github.com/dmurtari/mbu-frontend/issues"
   },
   "scripts": {
-    "watch": "./node_modules/gulp/bin/gulp.js watch"
+    "dev": "./node_modules/gulp/bin/gulp.js dev",
+    "gulp": "./node_modules/gulp/bin/gulp.js"
   },
   "dependencies": {
     "angular": "^1.5.0",

@@ -5,6 +5,8 @@ var browserify = require('gulp-browserify');
 var concat = require('gulp-concat');
 var clean = require('gulp-clean');
 
+gulp.task('default', ['dev'])
+
 gulp.task('lint', function() {
   gulp.src('./app/src/**/*.js')
   .pipe(jshint())
