@@ -17,5 +17,10 @@
   "unused": true,
   "strict": true,
   "trailing": true,
-  "smarttabs": true
+  "expr": true,
+  "jasmine": true,
+  "smarttabs": true,
+  "globals": {
+    "expect": true
+  }
 }

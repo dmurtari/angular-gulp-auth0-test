@@ -36,3 +36,5 @@ node_modules
 
 # Built files
 dist
+
+app/src/config
