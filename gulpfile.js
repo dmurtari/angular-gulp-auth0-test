@@ -18,7 +18,7 @@ gulp.task('browserify', function() {
     debug: true
   }))
   .pipe(concat('app.js'))
-  .pipe(gulp.dest('dist/js'))
+  .pipe(gulp.dest('dist/src'))
   .pipe(refresh(lrserver));
 });
 
@@ -43,6 +43,12 @@ gulp.task('views', function() {
   .pipe(refresh(lrserver));
 });
 
+gulp.task('static', function() {
+  gulp.src(['app/css/*.css', 'app/fonts/*', 'app/js/*'], {base: 'app'})
+  .pipe(gulp.dest('dist/'))
+  .pipe(refresh(lrserver));
+})
+
 var embedlr = require('gulp-embedlr'),
     refresh = require('gulp-livereload'),
     lrserver = require('tiny-lr')(),
@@ -59,7 +65,7 @@ server.all('/*', function(req, res) {
     res.sendfile('index.html', { root: 'dist' });
 });
 
-gulp.task('dev', ['browserify', 'views'], function() {
+gulp.task('dev', ['static', 'browserify', 'views'], function() {
   server.listen(serverport);
   lrserver.listen(livereloadport);
   gulp.run('watch');
