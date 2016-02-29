@@ -54,10 +54,10 @@
     "watchify": "^3.7.0"
   },
   "browserify": {
-     "transform": [
+    "transform": [
       "ejsify",
       "brfs",
       "packageify"
-     ]
+    ]
   }
 }

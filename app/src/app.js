@@ -5,6 +5,7 @@ require('angular-ui-router');
 require('angular-storage');
 require('angular-jwt');
 require('auth0-angular');
+require('angular-ui-bootstrap');
 
 window.Auth0Lock = require('auth0-lock');
 var auth0config = require('./config/auth0');
@@ -13,6 +14,7 @@ var app = angular.module('mbuOnline', [
   'ui.router',
   'angular-storage',
   'angular-jwt',
+  'ui.bootstrap',
   'auth0'
 ]);
 
