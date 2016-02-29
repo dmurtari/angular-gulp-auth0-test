@@ -4,6 +4,7 @@ var jshint = require('gulp-jshint');
 var browserify = require('gulp-browserify');
 var concat = require('gulp-concat');
 var clean = require('gulp-clean');
+var Server = require('karma').Server;
 
 gulp.task('default', ['dev'])
 
@@ -71,4 +72,11 @@ gulp.task('dev', ['static', 'browserify', 'views'], function() {
   server.listen(serverport);
   lrserver.listen(livereloadport);
   gulp.run('watch');
+});
+
+gulp.task('test', function (done) {
+  new Server({
+    configFile: __dirname + '/karma.config.js',
+    singleRun: true
+  }, done).start();
 });
