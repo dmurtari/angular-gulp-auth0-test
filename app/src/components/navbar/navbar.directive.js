@@ -1,8 +1,10 @@
+'use strict';
+
 module.exports = function() {
   return {
     restrict: 'E',
-    templateUrl: './navbar.html',
+    templateUrl: 'src/components/navbar/navbar.html',
     controller: 'mbuNavbarController',
     controllerAs: 'navbarCtrl'
-  }
-}
+  };
+};
