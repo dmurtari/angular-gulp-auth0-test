@@ -1,25 +1,16 @@
 'use strict';
 
-module.exports = function($http, auth, store, $location) {
-  this.text = 'Hello';
+module.exports = function(mbuAuthService, auth) {
 
-  this.login = function () {
-    auth.signin({}, function (profile, token) {
-      store.set('profile', profile);
-      store.set('token', token);
-      $location.path('/');
-    }, function () {
-      console.log('Error logging in');
-    });
+  this.login = function() {
+    mbuAuthService.login();
   };
 
   this.logout = function() {
-    auth.signout();
-    store.remove('profile');
-    store.remove('token');
+    mbuAuthService.logout();
   };
 
-  this.isAuthenticated = function() {
+  this.shouldShowLogout = function() {
     return auth.isAuthenticated && !!auth.profile;
   };
 };

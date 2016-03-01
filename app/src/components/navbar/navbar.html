@@ -17,8 +17,8 @@
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-        <li ng-hide="navbarCtrl.isAuthenticated()"><a ng-click="navbarCtrl.login()">Login</a></li>
-        <li ng-show="navbarCtrl.isAuthenticated()"><a ng-click="navbarCtrl.logout()">Logout</a></li>
+        <li ng-hide="navbarCtrl.shouldShowLogout()"><a ng-click="navbarCtrl.login()">Login</a></li>
+        <li ng-show="navbarCtrl.shouldShowLogout()"><a ng-click="navbarCtrl.logout()">Logout</a></li>
       </ul>
     </div>
   </div>
