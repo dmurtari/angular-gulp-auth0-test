@@ -30,7 +30,7 @@ gulp.task('watch', ['lint'], function() {
     'lint',
     'browserify'
   ]);
-  gulp.watch(['app/index.html'], [
+  gulp.watch(['app/index.html', 'app/src/**/*.html'], [
     'views'
   ]);
 });

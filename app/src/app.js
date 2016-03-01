@@ -34,8 +34,22 @@ app.config(function($stateProvider, $urlRouterProvider, authProvider) {
   });
 });
 
-app.run(function(auth){
+app.run(function($rootScope, auth, store, jwtHelper, $state){
   auth.hookEvents();
+
+  $rootScope.$on('$locationChangeStart', function() {
+    var token = store.get('token');
+    if (token) {
+      if (!jwtHelper.isTokenExpired(token)) {
+        if (!auth.isAuthenticated) {
+          auth.authenticate(store.get('profile'), token);
+        }
+      } else {
+        $state.go('home');
+      }
+    }
+
+  });
 });
 
 require('./components');
