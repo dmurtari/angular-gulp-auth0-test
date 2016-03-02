@@ -30,6 +30,7 @@
     "packageify": "^0.2.3"
   },
   "devDependencies": {
+    "angular-mocks": "^1.5.0",
     "browserify": "^13.0.0",
     "browserify-shim": "^3.8.12",
     "chai": "^3.5.0",
@@ -43,13 +44,14 @@
     "gulp-jshint": "^2.0.0",
     "gulp-livereload": "^3.8.1",
     "gulp-util": "^3.0.7",
-    "jasmine-core": "^2.4.1",
     "jshint": "^2.9.1",
     "karma": "^0.13.21",
     "karma-browserify": "^5.0.2",
+    "karma-chai": "^0.1.0",
     "karma-chrome-launcher": "^0.2.2",
-    "karma-jasmine": "^0.3.7",
+    "karma-mocha": "^0.2.2",
     "karma-phantomjs-launcher": "^1.0.0",
+    "mocha": "^2.4.5",
     "phantomjs-prebuilt": "^2.1.4",
     "tiny-lr": "^0.2.1",
     "watchify": "^3.7.0"

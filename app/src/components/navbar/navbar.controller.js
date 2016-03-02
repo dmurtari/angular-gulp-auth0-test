@@ -2,15 +2,19 @@
 
 module.exports = function(mbuAuthService, auth) {
 
-  this.login = function() {
+  var vm = this;
+
+  vm.login = function() {
     mbuAuthService.login();
   };
 
-  this.logout = function() {
+  vm.logout = function() {
     mbuAuthService.logout();
   };
 
-  this.shouldShowLogout = function() {
+  vm.shouldShowLogout = function() {
     return auth.isAuthenticated && !!auth.profile;
   };
+
+  return vm;
 };
