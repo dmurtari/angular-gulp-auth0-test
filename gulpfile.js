@@ -9,7 +9,10 @@ var Server = require('karma').Server;
 gulp.task('default', ['dev'])
 
 gulp.task('lint', function() {
-  gulp.src('./app/src/**/*.js')
+  gulp.src([
+    './app/src/**/*.js',
+    '!./app/src/**/*.spec.js'
+  ])
   .pipe(jshint())
   .pipe(jshint.reporter('default'));
 });

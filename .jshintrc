@@ -18,7 +18,7 @@
   "strict": true,
   "trailing": true,
   "expr": true,
-  "jasmine": true,
+  "mocha": true,
   "smarttabs": true,
   "globals": {
     "expect": true
