@@ -1,18 +1,19 @@
 <form novalidate>
   <div class="col-md-12">
     <p class="alert alert-info">
-      Thanks for signing up! Now, please fill in the following fields so that
-      we can finish setting up your account.
+      Thanks for signing up! Now, please fill in the following fields so that we can finish setting up your account.
     </p>
   </div>
 
-  <div class="form-group col-md-6">
-    <label for="firstName">First Name</label>
-    <input ng-model="user.firstname" type="text" class="form-control"placeholder="First Name" required>
-  </div>
-  <div class="form-group col-md-6">
-    <label for="lastName">Last Name</label>
-    <input ng-model="user.lastname" type="text" class="form-control" placeholder="Last Name" required>
+  <div class="row">
+    <div class="form-group col-md-6">
+      <label for="firstName">First Name</label>
+      <input ng-model="user.firstname" type="text" class="form-control" placeholder="First Name" required />
+    </div>
+    <div class="form-group col-md-6">
+      <label for="lastName">Last Name</label>
+      <input ng-model="user.lastname" type="text" class="form-control" placeholder="Last Name" required />
+    </div>
   </div>
 
   <div class="form-group col-md-12">
@@ -21,19 +22,48 @@
     </h4>
     <div class="radio">
       <label>
-        <input ng-model="user.role" type="radio" name="roleRadio" id="roleRadio1" value="teacher" required>
+        <input ng-model="user.role" type="radio" name="roleRadio" id="roleRadio1" value="teacher" required />
         Teacher (I will be teaching at MBU)
       </label>
     </div>
     <div class="radio">
       <label>
-        <input ng-model="user.role" type="radio" name="roleRadio" id="roleRadio2" value="scoutmaster" required>
-        Scoutmaster/Coordinator (I am registering up my troop for MBU)
+        <input ng-model="user.role" type="radio" name="roleRadio" id="roleRadio2" value="scoutmaster" required />
+        Scoutmaster/Coordinator (I am registering my troop for MBU)
       </label>
     </div>
   </div>
 
-  <div class="form-group col-md-6">
+  <div ng-show="user.role==='teacher'" class="row">
+    <div class="form-group col-md-6">
+      <label>Chapter</label>
+      <select class="form-control" ng-model="user.chapter" ng-required="user.role==='teacher'">
+        <option value="gammatheta">Gamma Theta</option>
+        <option value="alphaetaiota">Alpha Eta Iota</option>
+        <option value="epsilonxi">Epsilon Xi</option>
+        <option value="mupi">Mu Pi</option>
+        <option value="other">Other...</option>
+        <option value="unaffiliated">Not an APO member</option>
+      </select>
+    </div>
+  </div>
+
+  <div ng-show="user.role==='scoutmaster'" class="row">
+    <div class="form-group col-md-4">
+      <label for="troop">Troop</label>
+      <input ng-model="user.troop" type="number" class="form-control" ng-required="user.role==='scoutmaster'" />
+    </div>
+    <div class="form-group col-md-4">
+      <label for="district">District</label>
+      <input ng-model="user.district" type="text" class="form-control" ng-required="user.role==='scoutmaster'"  />
+    </div>
+    <div class="form-group col-md-4">
+      <label for="council">Council</label>
+      <input ng-model="user.council" type="text" class="form-control" ng-required="user.role==='scoutmaster'" />
+    </div>
+  </div>
+
+  <div class="form-group">
     <button type="submit" ng-click="profileCreateCtrl.save(user)" class="btn btn-default">Submit</button>
   </div>
 </form>
