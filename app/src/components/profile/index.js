@@ -2,5 +2,5 @@
 
 var app = require('angular').module('mbuOnline');
 
-app.directive('mbuProfileEdit', require('./profile.edit.directive'));
-app.controller('mbuProfileEditController', require('./profile.edit.controller'));
+app.directive('mbuProfileCreate', require('./profile.create.directive'));
+app.controller('mbuProfileCreateController', require('./profile.create.controller'));
