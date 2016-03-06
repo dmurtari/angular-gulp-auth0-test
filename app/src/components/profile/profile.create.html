@@ -1,18 +1,20 @@
 <form novalidate>
-  <div class="col-md-12">
-    <p class="alert alert-info">
-      Thanks for signing up! Now, please fill in the following fields so that we can finish setting up your account.
-    </p>
-  </div>
+  <p class="alert alert-info">
+    Thanks for signing up! Now, please fill in the following fields so that we can finish setting up your account.
+  </p>
 
   <div class="row">
-    <div class="form-group col-md-6">
+    <div class="form-group col-md-4">
       <label for="firstName">First Name</label>
       <input ng-model="user.firstname" type="text" class="form-control" placeholder="First Name" required />
     </div>
-    <div class="form-group col-md-6">
+    <div class="form-group col-md-4">
       <label for="lastName">Last Name</label>
       <input ng-model="user.lastname" type="text" class="form-control" placeholder="Last Name" required />
+    </div>
+    <div class="form-group col-md-4">
+      <label for="phone">Phone Number</label>
+      <input ng-model="user.phone" type="text" class="form-control" placeholder="(303) 123-1234" required />
     </div>
   </div>
 
