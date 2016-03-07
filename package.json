@@ -28,6 +28,7 @@
     "ejsify": "^1.0.0",
     "jquery": "^2.2.1",
     "karma-sinon": "^1.0.4",
+    "lodash": "^4.6.1",
     "packageify": "^0.2.3",
     "sinon-chai": "^2.8.0"
   },
