@@ -4,7 +4,7 @@ var _ = require('lodash');
 
 module.exports = function() {
 
-  this.user = {}
+  this.user = {};
 
   this.save = function(isValid) {
     if(isValid) {
