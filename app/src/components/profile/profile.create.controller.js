@@ -2,8 +2,12 @@
 
 module.exports = function() {
 
-  this.save = function(user) {
-    console.log(user);
+  this.save = function(isValid, user) {
+    if(isValid) {
+      console.log(user);
+    } else {
+      console.log('Invalid');
+    }
   };
 
 };

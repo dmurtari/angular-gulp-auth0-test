@@ -1,24 +1,28 @@
-<form novalidate>
+<form name="signupForm" novalidate>
   <p class="alert alert-info">
     Thanks for signing up! Now, please fill in the following fields so that we can finish setting up your account.
+    <strong>All fields are required.</strong>
   </p>
 
   <div class="row">
-    <div class="form-group col-md-4">
+    <div class="form-group col-md-4" ng-class="{'has-error': signupForm.firstName.$invalid && signupForm.firstName.$touched}">
       <label for="firstName">First Name</label>
-      <input ng-model="user.firstname" type="text" class="form-control" placeholder="First Name" required />
+      <input ng-model="user.firstname" type="text" name="firstName" class="form-control" placeholder="First Name" required />
+      <p ng-show="signupForm.firstName.$invalid && signupForm.firstName.$touched" class="help-block">Please enter your first name</p>
     </div>
-    <div class="form-group col-md-4">
+    <div class="form-group col-md-4" ng-class="{'has-error': signupForm.lastName.$invalid && signupForm.lastName.$touched}">
       <label for="lastName">Last Name</label>
-      <input ng-model="user.lastname" type="text" class="form-control" placeholder="Last Name" required />
+      <input ng-model="user.lastname" type="text" name="lastName" class="form-control" placeholder="Last Name" required />
+      <p ng-show="signupForm.firstName.$invalid && signupForm.firstName.$touched" class="help-block">Please enter your last name</p>
     </div>
-    <div class="form-group col-md-4">
+    <div class="form-group col-md-4" ng-class="{'has-error': signupForm.phone.$invalid && signupForm.phone.$touched}">
       <label for="phone">Phone Number</label>
-      <input ng-model="user.phone" type="text" class="form-control" placeholder="(303) 123-1234" required />
+      <input ng-model="user.phone" type="text" name="phone" class="form-control" placeholder="(303) 123-1234" required />
+      <p ng-show="signupForm.phone.$invalid && signupForm.phone.$touched" class="help-block">Please enter a valid phone number</p>
     </div>
   </div>
 
-  <div class="form-group col-md-12">
+  <div class="form-group col-md-12" ng-class="{'has-error': signupForm.roleRadio.$invalid && signupForm.roleRadio.$touched}">
     <h4>
       Are you a teacher or a scoutmaster?
     </h4>
@@ -34,38 +38,43 @@
         Scoutmaster/Coordinator (I am registering my troop for MBU)
       </label>
     </div>
+    <p ng-show="signupForm.roleRadio.$invalid && signupForm.roleRadio.$touched" class="help-block">Please enter a valid phone number</p>
   </div>
 
   <div ng-show="user.role==='teacher'" class="row">
-    <div class="form-group col-md-6">
+    <div class="form-group col-md-6" ng-class="{'has-error': signupForm.chapter.$invalid && signupForm.chapter.$touched}">
       <label>Chapter</label>
-      <select class="form-control" ng-model="user.chapter" ng-required="user.role==='teacher'">
+      <select class="form-control" name="chapter" ng-model="user.teacher.chapter" ng-required="user.role==='teacher'">
         <option value="gammatheta">Gamma Theta</option>
         <option value="alphaetaiota">Alpha Eta Iota</option>
         <option value="epsilonxi">Epsilon Xi</option>
         <option value="mupi">Mu Pi</option>
         <option value="other">Other...</option>
-        <option value="unaffiliated">Not an APO member</option>
+        <option value="unaffiliated">Other community member</option>
       </select>
+      <p ng-show="signupForm.chapter.$invalid && signupForm.chapter.$touched" class="help-block">Please select your affiliation</p>
     </div>
   </div>
 
   <div ng-show="user.role==='scoutmaster'" class="row">
-    <div class="form-group col-md-4">
+    <div class="form-group col-md-4" ng-class="{'has-error': signupForm.troop.$invalid && signupForm.troop.$touched}">
       <label for="troop">Troop</label>
-      <input ng-model="user.troop" type="number" class="form-control" ng-required="user.role==='scoutmaster'" />
+      <input ng-model="user.scoutmaster.troop" name="troop" type="number" class="form-control" ng-required="user.role==='scoutmaster'" />
+      <p ng-show="signupForm.troop.$invalid && signupForm.troop.$touched" class="help-block">Please enter your troop</p>
     </div>
-    <div class="form-group col-md-4">
+    <div class="form-group col-md-4" ng-class="{'has-error': signupForm.district.$invalid && signupForm.district.$touched}">
       <label for="district">District</label>
-      <input ng-model="user.district" type="text" class="form-control" ng-required="user.role==='scoutmaster'"  />
+      <input ng-model="user.scoutmaster.district" name="district" type="text" class="form-control" ng-required="user.role==='scoutmaster'"  />
+      <p ng-show="signupForm.district.$invalid && signupForm.district.$touched" class="help-block">Please enter your District</p>
     </div>
-    <div class="form-group col-md-4">
+    <div class="form-group col-md-4" ng-class="{'has-error': signupForm.council.$invalid && signupForm.council.$touched}">
       <label for="council">Council</label>
-      <input ng-model="user.council" type="text" class="form-control" ng-required="user.role==='scoutmaster'" />
+      <input ng-model="user.scoutmaster.council" name="council" type="text" class="form-control" ng-required="user.role==='scoutmaster'" />
+      <p ng-show="signupForm.council.$invalid && signupForm.council.$touched" class="help-block">Please enter your Council</p>
     </div>
   </div>
 
   <div class="form-group">
-    <button type="submit" ng-click="profileCreateCtrl.save(user)" class="btn btn-default">Submit</button>
+    <button ng-disabled="!signupForm.$valid" type="submit" ng-click="profileCreateCtrl.save(signupForm.$valid, user)" class="btn btn-default">Submit</button>
   </div>
 </form>
