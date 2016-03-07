@@ -1,9 +1,4 @@
 <form name="signupForm" novalidate>
-  <p class="alert alert-info">
-    Thanks for signing up! Now, please fill in the following fields so that we can finish setting up your account.
-    <strong>All fields are required.</strong>
-  </p>
-
   <div class="row">
     <div class="form-group col-md-4" ng-class="{'has-error': signupForm.firstName.$invalid && signupForm.firstName.$touched}">
       <label for="firstName">First Name</label>
@@ -73,8 +68,6 @@
       <p ng-show="signupForm.council.$invalid && signupForm.council.$touched" class="help-block">Please enter your Council</p>
     </div>
   </div>
-
-  {{profileCreateCtrl.user}}
 
   <div class="form-group">
     <button ng-disabled="!signupForm.$valid" type="submit" ng-click="profileCreateCtrl.save(signupForm.$valid)" class="btn btn-default">Submit</button>
