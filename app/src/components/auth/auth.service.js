@@ -44,7 +44,7 @@ module.exports = function($http, $location, auth, store) {
         console.log('failed', response);
       }
     );
-  }
+  };
 
   return {
     login: login,
