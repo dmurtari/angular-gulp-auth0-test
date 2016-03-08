@@ -29,9 +29,7 @@ app.config(function($stateProvider, $urlRouterProvider, authProvider) {
     })
     .state('signup', {
       url: '/signup',
-      templateUrl: 'src/views/signup/signup.html',
-      controller: 'mbuSignupController',
-      controllerAs: 'signup'
+      templateUrl: 'src/views/signup/signup.html'
     })
     .state('profileView', {
       url: '/profile',

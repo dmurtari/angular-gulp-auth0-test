@@ -2,15 +2,15 @@
 
 var credentials = require('../../config/auth0');
 
-module.exports = function($http, $location, auth, store) {
+module.exports = function($http, $state, auth, store) {
   var login = function () {
     auth.signin({}, function (profile, token) {
       store.set('profile', profile);
       store.set('token', token);
-      if (profile.user_metadata.completed_registration) {
-        $location.path('/');
+      if (typeof profile.user_metadata === 'undefined') {
+        $state.go('signup');
       } else {
-        $location.path('/signup');
+        $state.go('home');
       }
     }, function () {
       console.log('Error logging in');
@@ -21,7 +21,7 @@ module.exports = function($http, $location, auth, store) {
     auth.signout();
     store.remove('profile');
     store.remove('token');
-    $location.path('/');
+    $state.go('home');
   };
 
   var isAuthenticated = function() {
