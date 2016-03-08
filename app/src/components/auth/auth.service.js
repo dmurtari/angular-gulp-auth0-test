@@ -21,6 +21,7 @@ module.exports = function($http, $location, auth, store) {
     auth.signout();
     store.remove('profile');
     store.remove('token');
+    $location.path('/');
   };
 
   var isAuthenticated = function() {

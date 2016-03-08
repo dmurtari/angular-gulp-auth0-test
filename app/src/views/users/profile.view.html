@@ -1,0 +1,29 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+    <h4>
+      {{profileViewCtrl.metadata.firstname}} {{profileViewCtrl.metadata.lastname}}
+    </h4>
+    <h5>
+      You are registered as a {{profileViewCtrl.metadata.role}}
+    </h5>
+
+    <div>
+      <strong>Email:</strong> {{profileViewCtrl.profile.email}}
+    </div>
+    <div>
+      <strong>Phone:</strong> {{profileViewCtrl.metadata.phone}}
+    </div>
+
+    <div ng-show="profileViewCtrl.metadata.role==='teacher'">
+      <strong>Chapter Affiliation:</strong> {{profileViewCtrl.chapter()}}
+    </div>
+
+    <div ng-show="profileViewCtrl.metadata.role==='scoutmaster'">
+      <p>
+        {{profileViewCtrl.metadata.scoutmaster.council}} council,
+        {{profileViewCtrl.metadata.scoutmaster.district}} district,
+        troop {{profileViewCtrl.metadata.scoutmaster.troop}}
+      </p>
+    </div>
+  </div>
+</div>
