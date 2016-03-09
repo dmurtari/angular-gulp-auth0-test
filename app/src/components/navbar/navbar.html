@@ -18,10 +18,10 @@
         <li ng-hide="navbarCtrl.shouldShowLogout()"><a ng-click="navbarCtrl.login()">Login</a></li>
         <li uib-dropdown is-open="status.isopen" ng-show="navbarCtrl.shouldShowLogout()">
           <a id="single-button" uib-dropdown-toggle>
-            {{navbarCtrl.userName()}} <span class="caret"></span>
+            My Account <span class="caret"></span>
           </a>
           <ul uib-dropdown-menu role="menu" aria-labelledby="single-button">
-            <li role="menuitem"><a ui-sref="profileView">Profile</a></li>
+            <li role="menuitem"><a ui-sref="profileView">My Profile</a></li>
             <li class="divider"></li>
             <li role="menuitem"><a ng-click="navbarCtrl.logout()">Logout</a></li>
           </ul>
