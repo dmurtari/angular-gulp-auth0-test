@@ -40,12 +40,12 @@
     <div class="form-group col-md-6" ng-class="{'has-error': signupForm.chapter.$invalid && signupForm.chapter.$touched}">
       <label>Chapter</label>
       <select class="form-control" name="chapter" ng-model="profileCreateCtrl.user.teacher.chapter" ng-required="profileCreateCtrl.user.role==='teacher'">
-        <option value="gammatheta">Gamma Theta</option>
-        <option value="alphaetaiota">Alpha Eta Iota</option>
-        <option value="epsilonxi">Epsilon Xi</option>
-        <option value="mupi">Mu Pi</option>
-        <option value="other">Other...</option>
-        <option value="unaffiliated">Other community member</option>
+        <option value="Gamma Theta">Gamma Theta</option>
+        <option value="Alpha Eta Iota">Alpha Eta Iota</option>
+        <option value="Epsilon Xi">Epsilon Xi</option>
+        <option value="Mu Pi">Mu Pi</option>
+        <option value="Other">Other...</option>
+        <option value="Other community member">Other community member</option>
       </select>
       <p ng-show="signupForm.chapter.$invalid && signupForm.chapter.$touched" class="help-block">Please select your affiliation</p>
     </div>
