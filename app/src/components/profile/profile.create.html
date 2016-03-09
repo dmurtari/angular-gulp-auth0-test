@@ -1,75 +1,119 @@
 <form name="signupForm" novalidate>
   <div class="row">
-    <div class="form-group col-md-4" ng-class="{'has-error': signupForm.firstName.$invalid && signupForm.firstName.$touched}">
+    <div class="form-group col-md-4"
+         ng-class="{'has-error': signupForm.firstName.$invalid && signupForm.firstName.$touched}">
       <label for="firstName">First Name</label>
-      <input ng-model="profileCreateCtrl.user.firstname" type="text" name="firstName" class="form-control" placeholder="First Name" required />
-      <p ng-show="signupForm.firstName.$invalid && signupForm.firstName.$touched" class="help-block">Please enter your first name</p>
+      <input ng-model="profileCreateCtrl.user.firstname"
+             type="text" name="firstName" class="form-control" placeholder="First Name" required />
+      <p ng-show="signupForm.firstName.$invalid && signupForm.firstName.$touched" class="help-block">
+        Please enter your first name
+      </p>
     </div>
-    <div class="form-group col-md-4" ng-class="{'has-error': signupForm.lastName.$invalid && signupForm.lastName.$touched}">
+    <div class="form-group col-md-4"
+         ng-class="{'has-error': signupForm.lastName.$invalid && signupForm.lastName.$touched}">
       <label for="lastName">Last Name</label>
-      <input ng-model="profileCreateCtrl.user.lastname" type="text" name="lastName" class="form-control" placeholder="Last Name" required />
-      <p ng-show="signupForm.firstName.$invalid && signupForm.firstName.$touched" class="help-block">Please enter your last name</p>
+      <input ng-model="profileCreateCtrl.user.lastname"
+             type="text" name="lastName" class="form-control" placeholder="Last Name" required />
+      <p ng-show="signupForm.firstName.$invalid && signupForm.firstName.$touched" class="help-block">
+        Please enter your last name
+      </p>
     </div>
-    <div class="form-group col-md-4" ng-class="{'has-error': signupForm.phone.$invalid && signupForm.phone.$touched}">
+    <div class="form-group col-md-4"
+         ng-class="{'has-error': signupForm.phone.$invalid && signupForm.phone.$touched}">
       <label for="phone">Phone Number</label>
-      <input ng-model="profileCreateCtrl.user.phone" type="text" name="phone" class="form-control" placeholder="(303) 123-1234" required />
-      <p ng-show="signupForm.phone.$invalid && signupForm.phone.$touched" class="help-block">Please enter a valid phone number</p>
+      <input ng-model="profileCreateCtrl.user.phone"
+             type="text" name="phone" class="form-control" placeholder="(303) 123-1234"
+             ui-mask="(999) 999-9999"  ui-mask-placeholder ui-mask-placeholder-char="_"
+             ui-options="{clearOnBlur: false}" required />
+      <p ng-show="signupForm.phone.$invalid && signupForm.phone.$touched" class="help-block">
+        Please enter a valid phone number
+      </p>
     </div>
   </div>
 
-  <div class="form-group col-md-12" ng-class="{'has-error': signupForm.roleRadio.$invalid && signupForm.roleRadio.$touched}">
+  <div class="form-group col-md-12"
+       ng-class="{'has-error': signupForm.roleRadio.$invalid && signupForm.roleRadio.$touched}">
     <h4>
       Are you a Teacher or a Scoutmaster?
     </h4>
     <div class="radio">
       <label>
-        <input ng-model="profileCreateCtrl.user.role" ng-change="profileCreateCtrl.resetRole()" type="radio" name="roleRadio" id="roleRadio1" value="teacher" required />
+        <input ng-model="profileCreateCtrl.user.role" ng-change="profileCreateCtrl.resetRole()"
+               type="radio" name="roleRadio" id="roleRadio1" value="teacher" required />
         Teacher (I will be teaching at MBU)
       </label>
     </div>
     <div class="radio">
       <label>
-        <input ng-model="profileCreateCtrl.user.role" ng-change="profileCreateCtrl.resetRole()" type="radio" name="roleRadio" id="roleRadio2" value="scoutmaster" required />
+        <input ng-model="profileCreateCtrl.user.role" ng-change="profileCreateCtrl.resetRole()"
+               type="radio" name="roleRadio" id="roleRadio2" value="scoutmaster" required />
         Scoutmaster/Coordinator (I am registering my troop for MBU)
       </label>
     </div>
-    <p ng-show="signupForm.roleRadio.$invalid && signupForm.roleRadio.$touched" class="help-block">Please enter a valid phone number</p>
+    <p ng-show="signupForm.roleRadio.$invalid && signupForm.roleRadio.$touched" class="help-block">
+      Please select your role in MBU
+    </p>
   </div>
 
   <div ng-show="profileCreateCtrl.user.role==='teacher'" class="row">
-    <div class="form-group col-md-6" ng-class="{'has-error': signupForm.chapter.$invalid && signupForm.chapter.$touched}">
+    <div class="form-group col-md-6"
+        ng-class="{'has-error': signupForm.chapter.$invalid && signupForm.chapter.$touched}">
       <label>Chapter</label>
-      <select class="form-control" name="chapter" ng-model="profileCreateCtrl.user.teacher.chapter" ng-required="profileCreateCtrl.user.role==='teacher'">
-        <option value="gammatheta">Gamma Theta</option>
-        <option value="alphaetaiota">Alpha Eta Iota</option>
-        <option value="epsilonxi">Epsilon Xi</option>
-        <option value="mupi">Mu Pi</option>
-        <option value="other">Other...</option>
-        <option value="unaffiliated">Other community member</option>
+      <select class="form-control" name="chapter"
+              ng-model="profileCreateCtrl.user.teacher.chapter"
+              ng-required="profileCreateCtrl.user.role==='teacher'">
+        <option value="Gamma Theta">Gamma Theta</option>
+        <option value="Alpha Eta Iota">Alpha Eta Iota</option>
+        <option value="Epsilon Xi">Epsilon Xi</option>
+        <option value="Mu Pi">Mu Pi</option>
+        <option value="Other">Other...</option>
+        <option value="Other community member">Other community member</option>
       </select>
-      <p ng-show="signupForm.chapter.$invalid && signupForm.chapter.$touched" class="help-block">Please select your affiliation</p>
+      <p ng-show="signupForm.chapter.$invalid && signupForm.chapter.$touched"
+         class="help-block">
+         Please select your affiliation
+      </p>
     </div>
   </div>
 
   <div ng-show="profileCreateCtrl.user.role==='scoutmaster'" class="row">
-    <div class="form-group col-md-4" ng-class="{'has-error': signupForm.troop.$invalid && signupForm.troop.$touched}">
+    <div class="form-group col-md-4"
+         ng-class="{'has-error': signupForm.troop.$invalid && signupForm.troop.$touched}">
       <label for="troop">Troop</label>
-      <input ng-model="profileCreateCtrl.user.scoutmaster.troop" name="troop" type="number" class="form-control" ng-required="profileCreateCtrl.user.role==='scoutmaster'" />
-      <p ng-show="signupForm.troop.$invalid && signupForm.troop.$touched" class="help-block">Please enter your troop</p>
+      <input ng-model="profileCreateCtrl.user.scoutmaster.troop"
+             ng-required="profileCreateCtrl.user.role==='scoutmaster'"
+             name="troop" type="number" class="form-control" />
+      <p ng-show="signupForm.troop.$invalid && signupForm.troop.$touched" class="help-block">
+        Please enter your troop
+      </p>
     </div>
-    <div class="form-group col-md-4" ng-class="{'has-error': signupForm.district.$invalid && signupForm.district.$touched}">
+    <div class="form-group col-md-4"
+         ng-class="{'has-error': signupForm.district.$invalid && signupForm.district.$touched}">
       <label for="district">District</label>
-      <input ng-model="profileCreateCtrl.user.scoutmaster.district" name="district" type="text" class="form-control" ng-required="profileCreateCtrl.user.role==='scoutmaster'"  />
-      <p ng-show="signupForm.district.$invalid && signupForm.district.$touched" class="help-block">Please enter your District</p>
+      <input ng-model="profileCreateCtrl.user.scoutmaster.district"
+             ng-required="profileCreateCtrl.user.role==='scoutmaster'"
+             name="district" type="text" class="form-control" />
+      <p ng-show="signupForm.district.$invalid && signupForm.district.$touched" class="help-block">
+        Please enter your District
+      </p>
     </div>
-    <div class="form-group col-md-4" ng-class="{'has-error': signupForm.council.$invalid && signupForm.council.$touched}">
+    <div class="form-group col-md-4"
+         ng-class="{'has-error': signupForm.council.$invalid && signupForm.council.$touched}">
       <label for="council">Council</label>
-      <input ng-model="profileCreateCtrl.user.scoutmaster.council" name="council" type="text" class="form-control" ng-required="profileCreateCtrl.user.role==='scoutmaster'" />
-      <p ng-show="signupForm.council.$invalid && signupForm.council.$touched" class="help-block">Please enter your Council</p>
+      <input ng-model="profileCreateCtrl.user.scoutmaster.council"
+             ng-required="profileCreateCtrl.user.role==='scoutmaster'"
+             name="council" type="text" class="form-control" />
+      <p ng-show="signupForm.council.$invalid && signupForm.council.$touched" class="help-block">
+        Please enter your Council
+      </p>
     </div>
   </div>
 
   <div class="form-group">
-    <button ng-disabled="!signupForm.$valid" type="submit" ng-click="profileCreateCtrl.save(signupForm.$valid)" class="btn btn-default">Submit</button>
+    <button ng-disabled="!signupForm.$valid"
+            ng-click="profileCreateCtrl.save(signupForm.$valid)"
+            class="btn btn-default" type="submit">
+      Submit
+    </button>
   </div>
 </form>

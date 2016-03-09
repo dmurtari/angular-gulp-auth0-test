@@ -21,6 +21,7 @@
     "angular-jwt": "0.0.9",
     "angular-storage": "0.0.13",
     "angular-ui-bootstrap": "^1.2.1",
+    "angular-ui-mask": "^1.8.1",
     "angular-ui-router": "^0.2.18",
     "auth0-angular": "^4.1.0",
     "auth0-lock": "^8.2.3",

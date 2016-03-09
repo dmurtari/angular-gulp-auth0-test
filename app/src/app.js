@@ -1,20 +1,22 @@
 'use strict';
 
 var angular = require('angular');
-require('angular-ui-router');
 require('angular-storage');
 require('angular-jwt');
 require('auth0-angular');
+require('angular-ui-router');
 require('angular-ui-bootstrap');
+require('angular-ui-mask');
 
 window.Auth0Lock = require('auth0-lock');
 var auth0config = require('./config/auth0');
 
 var app = angular.module('mbuOnline', [
-  'ui.router',
   'angular-storage',
   'angular-jwt',
+  'ui.router',
   'ui.bootstrap',
+  'ui.mask',
   'auth0'
 ]);
 
