@@ -27,11 +27,9 @@ app.config(function($stateProvider, $urlRouterProvider, authProvider) {
       controller: 'mbuMainController',
       controllerAs: 'main'
     })
-    .state('singup', {
+    .state('signup', {
       url: '/signup',
-      templateUrl: 'src/views/signup/signup.html',
-      controller: 'mbuSignupController',
-      controllerAs: 'signup'
+      templateUrl: 'src/views/signup/signup.html'
     });
 
   authProvider.init({
