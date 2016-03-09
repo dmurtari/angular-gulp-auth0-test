@@ -31,7 +31,10 @@ app.config(function($stateProvider, $urlRouterProvider, authProvider) {
     })
     .state('signup', {
       url: '/signup',
-      templateUrl: 'src/views/signup/signup.html'
+      templateUrl: 'src/views/signup/signup.html',
+      data: {
+        requiresLogin: true
+      }
     })
     .state('profileView', {
       url: '/profile',
@@ -42,7 +45,9 @@ app.config(function($stateProvider, $urlRouterProvider, authProvider) {
 
   authProvider.init({
     domain: auth0config.domain,
-    clientId: auth0config.clientID
+    clientId: auth0config.clientID,
+    callbackUrl: location.href,
+    loginState: 'home'
   });
 });
 
