@@ -44,7 +44,7 @@ gulp.task('clean', function() {
 });
 
 gulp.task('views', function() {
-  gulp.src('app/index.html')
+  gulp.src(['app/index.html', 'app/src/**/*.html'])
   .pipe(gulp.dest('dist/'))
   .pipe(refresh(lrserver));
 
