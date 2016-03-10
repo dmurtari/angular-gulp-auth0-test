@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function(store) {
+module.exports = function() {
   var vm = this;
 
   vm.profile = store.get('profile');
