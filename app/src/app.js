@@ -40,7 +40,10 @@ app.config(function($stateProvider, $urlRouterProvider, authProvider) {
       url: '/profile',
       templateUrl: 'src/views/users/profile.view.html',
       controller: 'mbuProfileViewController',
-      controllerAs: 'profileViewCtrl'
+      controllerAs: 'profileViewCtrl',
+      data: {
+        requiresLogin: true
+      }
     });
 
   authProvider.init({
