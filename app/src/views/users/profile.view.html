@@ -1,8 +1,11 @@
 <div class="panel panel-default">
   <div class="panel-body">
     <h4>
-      <span contentEditable="true">{{profileViewCtrl.metadata.firstname}}</span> {{profileViewCtrl.metadata.lastname}}
+      {{profileViewCtrl.metadata.firstname}} {{profileViewCtrl.metadata.lastname}}
       ({{profileViewCtrl.metadata.role}})
     </h4>
+    <div ng-show="profileViewCtrl.isRole('teacher')">
+      <mbu-teacher-view></mbu-teacher-view>
+    </div>
   </div>
 </div>

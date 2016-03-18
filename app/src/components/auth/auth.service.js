@@ -41,8 +41,11 @@ module.exports = function($http, $state, auth, store) {
       }
     }).then(function successCallback(response) {
         console.log('updated success', response);
+        store.set('profile', response.data);
+        $state.go('profileView');
       }, function errorCallback(response) {
         console.log('failed', response);
+        $state.go('signup');
       }
     );
   };
