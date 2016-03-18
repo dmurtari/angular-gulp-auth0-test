@@ -3,7 +3,7 @@
 module.exports = function() {
   return {
     restrict: 'E',
-    template: require('./teacher.view.html'),
+    templateUrl: 'src/components/users/teachers/teacher.view.html',
     controller: 'mbuTeacherViewController',
     controllerAs: 'teacherViewCtrl'
   };
