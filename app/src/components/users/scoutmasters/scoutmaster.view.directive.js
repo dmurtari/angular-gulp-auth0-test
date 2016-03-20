@@ -1,10 +1,12 @@
 'use strict';
 
-module.exports = function() {
+module.exports = function(store) {
   return {
     restrict: 'E',
     templateUrl: 'src/components/users/scoutmasters/scoutmaster.view.html',
-    controller: 'mbuScoutmasterViewController',
-    controllerAs: 'scoutmasterViewCtrl'
+    scope: {},
+    link: function(scope) {
+      scope.profile = store.get('profile').user_metadata.scoutmaster;
+    }
   };
 };
